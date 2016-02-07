@@ -1,0 +1,37 @@
+import cgi
+import calendar
+
+form = cgi.FieldStorage()
+y = int(form.getvalue("year"))
+m = int(form.getvalue("month"))
+d = int(form.getvalue("day"))
+weekday = calendar.weekday(y, m, d)
+print "Content-type: text/html"
+print ""
+print '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'
+print '<html xmlns="http://www.w3.org/1999/xhtml">'
+print "<title></title>"
+print "</head><body>"
+if weekday == 0:
+    print "<p> That's a Monday. </p>" 
+elif weekday == 1:
+        print "<p> That's a Tuesday. </p>"
+
+elif weekday == 2:
+        print "<p> That's a Wednesday. </p>"
+
+elif weekday == 3:
+        print "<p> That's a Thursday. </p>"
+
+elif weekday == 4:
+        print "<p> That's a Friday. </p>"
+
+elif weekday == 5:
+        print "<p> That's a Saturday. </p>"
+
+else: 
+        print "<p> That's a Sunday. </p>"
+        
+print "</body></html>"
+
+
